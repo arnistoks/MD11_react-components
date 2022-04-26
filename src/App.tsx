@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
 import Task from './components/Task/Task';
+import VegetableListFirst from './components/VegetableListFirst/VegetableListFirst';
+import VegetableListSecond from './components/VegetableListSecond/VegetableListSecond';
 
 const tasks = [
   {
@@ -27,6 +29,7 @@ const App = () => (
         task.done ? (
           <div className="lineThrough">
             <Task
+              key={task.id}
               id={task.id}
               text={task.text}
               done={task.done}
@@ -34,6 +37,7 @@ const App = () => (
           </div>
         ) : (
           <Task
+            key={task.id}
             id={task.id}
             text={task.text}
             done={task.done}
@@ -43,14 +47,14 @@ const App = () => (
     </div>
     <div className="container">
       {tasks.map((task) => (
-        task.done ? null : <Task id={task.id} text={task.text} done={task.done} />
+        task.done ? null : <Task key={task.id} id={task.id} text={task.text} done={task.done} />
       ))}
     </div>
     <div className="container container__cards">
-      VegetableListFirst
+      <VegetableListFirst />
     </div>
     <div className="container container__cards">
-      VegetableListSecond
+      <VegetableListSecond />
     </div>
   </section>
 );

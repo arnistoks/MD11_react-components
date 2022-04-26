@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import './vegetableListSecond.scss';
+import VegetableCard from '../VegetableCard/VegetableCard';
 
 const vegetables = [
   {
@@ -25,19 +26,19 @@ const vegetables = [
   },
 ];
 
-type VegetableListSecondProps = {
-    id: string
-    title: string
-    description: string
-    backgroundColor: string
-    available: boolean
-}
-
-const VegetableListSecond:FC<VegetableListSecondProps> = ({
-  id, title, description, backgroundColor, available,
-}) => (
-  <div>
-    ddd
+const VegetableListSecond = () => (
+  <div className="vegetables__box">
+    {vegetables.map(({
+      id, title, description, backgroundColor, available,
+    }) => (available ? (
+      <VegetableCard
+        id={id}
+        title={title}
+        description={description}
+        backgroundColor={backgroundColor}
+      />
+    ) : null
+    ))}
   </div>
 );
 

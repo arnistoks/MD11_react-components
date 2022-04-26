@@ -6,7 +6,9 @@ type IdProps = {
 }
 
 const Id:FC<IdProps> = ({ id }) => (
-  <p id={id} />
+  <p className="id">
+    {id}
+  </p>
 );
 
 export default Id;
